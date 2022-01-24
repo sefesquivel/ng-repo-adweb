@@ -1,0 +1,74 @@
+<!-- This will demonstrate string interpolation or also known as One-Way data binding -->
+<title>{{ title }}</title>
+
+<!-- String interpolation -->
+See interpolated text below (within the body of the page).
+<br><br>
+{{ appName }}
+<br>
+<hr />
+<br>
+<!-- Numeric Operations and Binding -->
+<p>Given the numbers 9 and 30 respectively, compute for the sum, difference, quotient and product</p>
+<p>The sum of 9 and 30 is {{ num1 + num2}}</p>
+<p>The difference of 9 and 30 is {{ num1 - num2}}</p>
+<p>The quotient of 9 and 30 is {{ num1 / num2}}</p>
+<p>The product of 9 and 30 is {{ num1 * num2}}</p>
+
+<!-- Property Binding -->
+<br><br>
+<input type="text" [value]='clientName'>
+
+<!--  Style Binding -->
+
+<p [style.color]="myColor">This text is styled using style binding.</p>
+
+<!-- make sure to add CSS styling to apply style, since the binding will read the boolean value -->
+<p [class]="appliedCSSClass">This text is styled using style binding.</p>
+
+<p [class.blue]="nonappliedCSSClass">No style binding applied in this line.</p>
+
+<!-- Two-Way data binding demo below -->
+<!-- Event Binding includes mouse click, double click, hover and other keyboard and mouse actions -->
+
+<hr>
+
+<h2>Two-way data binding demo</h2>
+<button (click)="showData($event)">Click Me!</button>
+
+<button on-click="showData($event)">Click Me Too!</button>
+
+<hr>
+<h2>Two-way data binding demo (Using Functions)</h2>
+<button (click)="getMessage(20)">Click to Display Secret Message 1</button>
+
+
+<hr>
+<h2>Two-way data binding demo (More Events)</h2>
+<p>Using keyup, keydown, blur, mouse actions</p>
+<br>
+
+<!-- Using the console to display warning events -->
+<button (click)="getMessage2('Button Click Event')">Click to Display Secret Message 2</button>
+<br>
+
+<!--
+<input type="text" #keyupbox placeholder="keyup box" (keyup)="getData('keyupbox.value')"/>
+<br>
+<input type="text" #keydownbox placeholder="keydown box" (keydown)="getData('keydownbox.value')"/>
+<br>
+-->
+
+<input type="text" #keyupbox placeholder="keyup box" (keyup)="getData(keyupbox.value)"/>
+<br>
+<input type="text" #keyinputbox placeholder="input box" (input)="getData(keyinputbox.value)"/>
+<br>
+<input type="text" #keydownbox placeholder="keydown box" (keydown)="getData(keydownbox.value)"/>
+<br>
+<input type="text" #keyblurbox placeholder="blur box" (blur)="getData(keyblurbox.value)"/>
+<br>
+
+<h1 (mouseover)="getData('mouse over')">Hover your mouse on this text.</h1>
+<h1 (mouseleave)="getData('mouse leave')">Hover your mouse on this text.</h1>
+
+
