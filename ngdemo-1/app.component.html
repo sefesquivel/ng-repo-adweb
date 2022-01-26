@@ -71,4 +71,11 @@ See interpolated text below (within the body of the page).
 <h1 (mouseover)="getData('mouse over')">Hover your mouse on this text.</h1>
 <h1 (mouseleave)="getData('mouse leave')">Hover your mouse on this text.</h1>
 
+<!-- Using [(ngModel)] -->
+
+<input type="text" [(ngModel)]="userName" /> 
+<p>Two way binding! Good morning, {{ userName }}!</p>
+
+
+
 
