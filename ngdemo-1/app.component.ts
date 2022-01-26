@@ -53,4 +53,8 @@ export class AppComponent {
     console.warn(data)
   }
 
+  //Using [(ngModel)]
+  userName:string = "Enter your name:";
+  
+  
 }
