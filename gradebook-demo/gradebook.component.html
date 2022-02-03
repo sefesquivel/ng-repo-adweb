@@ -1,36 +1,34 @@
 <!-- Two-way data binding using ngmodel and FormsModule -->
 
 <h2>Student Gradebook</h2>
-
 <input type="text" [(ngModel)]="studName" />
 
 <hr>
 <p><input type="number" [(ngModel)]="prelim" class="form-control" placeholder ="Prelim" /></p>
 <p><input type="number" [(ngModel)]="midterm" class="form-control" placeholder ="Midterm" /></p>
 <p><input type="number" [(ngModel)]="final" class="form-control" placeholder ="Final" /></p>
+
 <hr>
 
 <p>Hello, {{studName}}! </p>
 <p>Prelim grade: {{prelim}}</p>
 <p>Midterm grade: {{midterm}}</p>
 <p>Final grade:{{final}}</p>
-
 <p>Average: {{(prelim+midterm+final)/3}}</p>
 
-<!-- Ng Directives Demonstration -->
-<hr>
-<!--
+<!-- 
+Ng Directives Demonstration
     1. Structural Directives
     2. Attribute Directives
 -->
 
 <!-- ngIf Directive Demo -->
 <div *ngIf="false">Display this message!</div>
+<hr>
 
+<!-- ngIfElse Directive Demo and ng-template -->
 
-<!-- ngIfElse Directive Demo -->
-
-<p>ngIfElse Directive Example</p>
+<h4>ngIfElse Directive Example</h4>
 
 <div *ngIf="isLogIn; else isLogOut">Hello you are logged IN</div>
 <ng-template #isLogOut>You're logged out...</ng-template>
@@ -45,14 +43,6 @@
 <ul>
     <li *ngFor="let l of list">
         {{l}}
-    </li>
-</ul>
-
-<h4>Another ngFor Directive Example</h4>
-
-<ul>
-    <li *ngFor="let n of users">
-        {{n.userId}},{{n.userName}}
     </li>
 </ul>
 
@@ -78,11 +68,16 @@
         </tbody>
     </table>
 </div>
-
 <hr>
-<br>
 
 <!-- Using TrackBy-->
 <ul> <li *ngFor="let std of studentArr; trackBy: trackByData"> {{std.name}} </li> </ul>
 <br>
 
+<h4>LAST EXAMPLE: Using ngClass and mgFor</h4>
+
+<ul>
+    <li *ngFor="let n of users">
+        {{n.userId}},{{n.userName}}
+    </li>
+</ul>
