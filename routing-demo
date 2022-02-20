@@ -1,0 +1,95 @@
+//The code below provides the steps in integrating ROUTING in Angular.  Do the following steps:
+
+//Create a new angular project named 'routing-demo'
+//Add Routing
+//generate the following components: test, about, listing, pagenotfound and home
+//Add bootstrap 
+//open the project using VSCode
+
+//STEP 1: Open and modify the app.module.ts and add the following code:
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { TestComponent } from './test/test.component';
+import { AboutComponent } from './about/about.component';
+import { ListingComponent } from './listing/listing.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { HomeComponent } from './home/home.component';
+
+//The code above will import all the generated components and the AppRouting Module from the library.
+
+
+//STEP 2: Locate the @decorator (NgModule) and add the imported components as shown below:
+
+@NgModule({
+    declarations: [
+      AppComponent,
+      TestComponent,
+      AboutComponent,
+      ListingComponent,
+      PagenotfoundComponent,
+      HomeComponent
+    ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule
+    ]
+
+    
+//STEP 3a: Locate and open app-routing.module.ts and add the following import lines
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { ListingComponent } from './listing/listing.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TestComponent } from './test/test.component';
+import { HomeComponent } from './home/home.component';
+
+//STEP 3b: Create and define the routes.
+
+const routes: Routes = [{path:'about', component:AboutComponent},
+                        {path:'listing', component:ListingComponent},
+                        {path:'home', component:HomeComponent},
+                        {path:'test', component:TestComponent},
+                        {path:'', component:HomeComponent},
+                        {path:'**', component:PagenotfoundComponent}];  //Wildcard to match any 
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+
+<!-- app.component.html -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">ngWebApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="../home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../about">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="../listing">Listing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="../test">Test</a>
+          </li>
+        
+      </ul>
+     
+    </div>
+  </nav>
+
+
+<router-outlet></router-outlet>
